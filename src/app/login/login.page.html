@@ -1,0 +1,61 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+  <div class="login-container" style="display: flex; flex-direction: column; min-height: 100%;">
+    <!-- Premium Gradient Header -->
+    <div class="header-visual premium-header">
+      <!-- <ion-buttons slot="start" class="back-btn">
+        <ion-back-button defaultHref="/splash" color="light"></ion-back-button>
+      </ion-buttons> -->
+      <div class="header-content">
+        <h1 class="welcome-text">Welcome Back</h1>
+        <p>Sign in to continue growing your business network.</p>
+      </div>
+      <svg class="wave-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,90.7L1440,75L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+
+    <!-- Form Card Layout -->
+    <div class="login-card-container ion-padding" style="display: block; width: 100%; padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 40px);">
+      <div class="form-card animate-slide-in" style="width: 100%; max-width: 400px; margin: -40px auto 0; background: white; border-radius: 24px; padding: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; z-index: 10;">
+        <!-- Credentials Section -->
+        <div class="input-group" style="margin-bottom: 16px; display: flex; flex-direction: column;">
+          <label for="username" style="font-weight: 600; color: #475569; margin-bottom: 6px; font-size: 0.9rem;">Username</label>
+          <div style="display: flex; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0 12px; height: 52px;">
+            <ion-icon name="person-outline" style="font-size: 20px; color: #64748b; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+            <input id="username" type="text" [(ngModel)]="username" placeholder="Username or email" style="width: 100%; border: none; background: transparent; outline: none; font-size: 1rem; color: #1e293b; padding: 0;" />
+          </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 24px; display: flex; flex-direction: column;">
+          <label for="password" style="font-weight: 600; color: #475569; margin-bottom: 6px; font-size: 0.9rem;">Password</label>
+          <div style="display: flex; align-items: center; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 0 12px; height: 52px;">
+            <ion-icon name="lock-closed-outline" style="font-size: 20px; color: #64748b; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+            <input id="password" type="password" [(ngModel)]="password" placeholder="••••••••" style="width: 100%; border: none; background: transparent; outline: none; font-size: 1rem; color: #1e293b; padding: 0;" />
+          </div>
+        </div>
+        
+        <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <button type="button" (click)="onLogin()" style="width: 100%; background: #D31329; color: #ffffff; border: none; border-radius: 12px; height: 52px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(211, 19, 41, 0.2); transition: transform 0.1s active;">
+          Sign In
+        </button>
+
+        <div class="divider-container" style="margin-bottom: 20px;">
+          <span class="line"></span>
+          <span class="text">or continue with</span>
+          <span class="line"></span>
+        </div>
+
+        <!-- Google Sign-In Image Asset -->
+        <div class="google-signin-container" (click)="loginWithGoogle()" style="margin: 0; display: flex; justify-content: center;">
+          <img src="assets/icon/gg-signin.png" alt="Sign in with Google" class="google-signin-img" />
+        </div>
+        
+        <div class="footer-links">
+          <p class="resend-text">Don't have an account? <a routerLink="/register">Register</a></p>
+          <p class="forgot-link"><a>Forgot Password?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

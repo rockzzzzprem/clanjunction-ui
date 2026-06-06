@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true" class="ion-no-padding splash-page">
+  <div class="splash-container" style="display: flex; flex-direction: column; height: 100%; min-height: 100%;">
+    <!-- Top Gradient Section (45%) -->
+    <div class="header-visual">
+      <div class="pattern-overlay"></div>
+      <div class="logo-wrapper ion-text-center">
+        <div class="logo-horizontal-card">
+          <img src="assets/logo/Jain-TH-nobg-card.png" alt="Jain Junction Logo" class="brand-card-img" />
+        </div>
+        <h1 class="app-name">Jain Junction</h1>
+      </div>
+      
+      <!-- Organic Wave Divider -->
+      <svg class="wave-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,90.7L1440,75L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      </svg>
+    </div>
+
+    <!-- Bottom Content Section (55%) -->
+    <div class="content-body ion-padding" style="display: flex; flex-direction: column; flex: 1; justify-content: space-between; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px);">
+      <div class="text-group" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <h2 class="tagline">Connect. Collaborate. Grow.</h2>
+        <p class="description">
+          Find trusted business opportunities, referrals, and partnerships within your professional network.
+        </p>
+      </div>
+
+      <div class="footer-group" style="width: 100%;">
+        <button type="button" routerLink="/login" style="width: 100%; background: #D31329; color: #ffffff; border: none; border-radius: 12px; height: 52px; font-weight: bold; font-size: 1.1rem; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(211, 19, 41, 0.2); transition: transform 0.1s active;">
+          Get Started
+        </button>
+        <p class="trust-footer">Trusted by professionals and businesses</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "clanjunction-ui",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }

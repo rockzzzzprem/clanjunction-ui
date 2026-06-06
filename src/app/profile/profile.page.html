@@ -1,0 +1,119 @@
+<ion-content [fullscreen]="true" class="profile-shell">
+  <style>
+
+  </style>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="10" size-lg="8" size-xl="6" style="overflow-x: hidden;">
+        
+        <header class="profile-top sticky-header" style="max-width: 100%; box-sizing: border-box;">
+          <a class="back-link" routerLink="/home">← Back</a>
+          <p class="eyebrow">Business profile</p>
+        </header>
+
+        <main class="profile-card" *ngIf="card" style="width: 100%; max-width: 100%; overflow-x: hidden; box-sizing: border-box;">
+          <section class="profile-hero card-surface text-center">
+            <div class="avatar-ring" (click)="this['isViewerOpen'] = true" style="cursor: pointer; transition: opacity 0.2s;">
+              <div class="avatar avatar-xl" style="overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f8fafc; border: 2px solid #fff;">
+                <img src="assets/profilepic/Keetu.jpeg" alt="Ava Stone" style="width: 100%; height: 100%; object-fit: cover;" />
+              </div>
+            </div>
+            <h2>{{ card.name }}</h2>
+            <p class="profile-tag">{{ card.title }} • {{ card.company }}</p>
+            <p class="profile-note">{{ card.bio }}</p>
+
+            <div class="stat-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+              <article class="stat-box"><strong>48</strong><span>Businesses Completed</span></article>
+              <article class="stat-box"><strong>126</strong><span>Referrals Given</span></article>
+              <article class="stat-box"><strong>92</strong><span>Connections</span></article>
+            </div>
+
+            <button type="button" class="contact-trigger" (click)="showContactCard = !showContactCard" style="background: linear-gradient(90deg, #FF4D6D, #FF6B81); color: #fff; border: none; box-shadow: 0 4px 12px rgba(255, 77, 109, 0.25);">📞 Contact</button>
+
+            <aside class="mini-contact-card" *ngIf="showContactCard">
+              <div class="mini-contact-header">
+                <strong>Contact details</strong>
+                <span>Quick reach</span>
+              </div>
+              <ul class="contact-list">
+                <li><span>📱</span> {{ contactInfo.phone }}</li>
+                <li><span>✉️</span> {{ contactInfo.email }}</li>
+                <li><span>📍</span> {{ contactInfo.address }}</li>
+              </ul>
+              <div class="contact-actions">
+                <button type="button" class="mini-action" style="background: linear-gradient(90deg, #FF4D6D, #FF6B81); color: #fff; border: none; box-shadow: 0 4px 12px rgba(255, 77, 109, 0.25);">📞 Call</button>
+                <button type="button" class="mini-action" style="background: linear-gradient(90deg, #FF4D6D, #FF6B81); color: #fff; border: none; box-shadow: 0 4px 12px rgba(255, 77, 109, 0.25);">💬 WhatsApp</button>
+              </div>
+            </aside>
+          </section>
+
+          <section class="tab-shell card-surface">
+            <button type="button" class="tab-pill" [class.active]="activeTab === 'ads'" (click)="activeTab = 'ads'">Business Ads</button>
+            <button type="button" class="tab-pill" [class.active]="activeTab === 'needs'" (click)="activeTab = 'needs'">Business Needed</button>
+          </section>
+
+          <!-- Redesigned Single Vertical ID Card Layout -->
+          <section class="id-card-view" *ngIf="activeTab === 'ads'" style="padding: 16px 20px;">
+            <article class="id-card" style="background: #ffffff; border: 1.5px solid #e2e8f0; border-radius: 16px; box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.05); padding: 32px 24px; display: flex; flex-direction: column; min-height: 640px;">
+              
+              <!-- Corporate Header: Top Center -->
+              <div style="text-align: center; margin-bottom: 24px;">
+                <div style="width: 64px; height: 64px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                  <span style="font-weight: 800; font-size: 1.4rem; color: #334155; letter-spacing: 1px;">AC</span>
+                </div>
+                <h3 style="font-size: 1.3rem; font-weight: 700; color: #0f172a; margin: 0;">ABC Construction Profile</h3>
+              </div>
+
+              <!-- Extensive Business Description: Exactly 15 Lines -->
+              <div style="flex-grow: 1;">
+                <p style="font-family: sans-serif; font-size: 0.9rem; line-height: 1.55; color: #475569; text-align: justify; margin: 0; display: -webkit-box; -webkit-line-clamp: 15; -webkit-box-orient: vertical; overflow: hidden;">
+                  ABC Construction stands as a premier leader in Chennai's building sector, delivering top-tier residential and commercial structural solutions with unmatched precision. Having successfully delivered 48+ large-scale projects across the region, we have established a reputation for reliability, architectural innovation, and superior craftsmanship. Our expertise spans the entire development lifecycle, from initial site assessment and foundation engineering to the final stages of luxury interior design and finishing. We are deeply committed to sustainable building practices, integrating eco-friendly materials and energy-efficient systems into every structural plan we execute. Our team of seasoned architects and engineers navigates Chennai’s specific urban regulations and climatic challenges with ease, ensuring every project is both compliant and durable. We specialize in modern high-rise developments, bespoke residential villas, and state-of-the-art corporate office spaces tailored to modern business needs. Our core values of integrity and transparency drive our client relationships, ensuring every stakeholder is informed and satisfied at every milestone. By utilizing cutting-edge construction technology, we minimize waste and optimize build times without compromising on the highest standards of safety or quality. Our interior design wing focuses on creating functional, aesthetic spaces that reflect the unique identity and vision of our diverse clientele. From structural reinforcements to aesthetic landscaping, we provide a holistic approach to building that stands the test of time and weather. Our location-specific expertise in Chennai allows us to source the finest local materials while maintaining global quality benchmarks in every detail. We take pride in our history of transforming the city skyline through landmarks that define modern urban living and commercial functionality. Safety is our utmost priority, with rigorous protocols implemented across every site to protect our skilled workforce and the surrounding community. We invite you to partner with us for your next project, where we turn architectural visions into tangible realities. Experience the ABC Construction difference, where structural engineering meets artistic excellence in the heart of Tamil Nadu’s vibrant capital city.
+                </p>
+              </div>
+
+              <!-- Footer Meta-Information & CTA -->
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid #f1f5f9;">
+                <div style="display: flex; align-items: center; gap: 6px; color: #64748b; font-weight: 500; font-size: 0.95rem;">
+                  <span>📍</span> Chennai
+                </div>
+                <button type="button" style="background: linear-gradient(90deg, #FF4D6D, #FF6B81); color: #ffffff; border: none; padding: 12px 28px; border-radius: 50px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(255, 77, 109, 0.25);">Contact</button>
+              </div>
+            </article>
+          </section>
+
+          <section class="needs-stack" *ngIf="activeTab === 'needs'">
+            <article class="need-card card-surface" *ngFor="let item of needs">
+              <div class="need-top">
+                <span class="need-tag">{{ item.tag }}</span>
+                <span class="need-icon">{{ item.title.charAt(0) }}</span>
+              </div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.detail }}</p>
+              <button type="button" class="contact-btn" style="background: linear-gradient(90deg, #FF4D6D, #FF6B81); color: #fff; border: none; box-shadow: 0 4px 12px rgba(255, 77, 109, 0.25);">Respond</button>
+            </article>
+          </section>
+        </main>
+
+        <ng-template #notFound>
+          <div class="detail-box">This profile is unavailable right now.</div>
+        </ng-template>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Full-screen Image Viewer Overlay -->
+  <div class="image-viewer-overlay" *ngIf="this['isViewerOpen']" (click)="this['isViewerOpen'] = false"
+       style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+    
+    <button (click)="this['isViewerOpen'] = false" 
+            style="position: absolute; top: env(safe-area-inset-top, 20px); right: 20px; background: rgba(255, 255, 255, 0.15); border: none; color: white; width: 44px; height: 44px; border-radius: 50%; font-size: 24px; display: flex; align-items: center; justify-content: center; z-index: 10000; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+      ✕
+    </button>
+
+    <img src="assets/profilepic/Keetu.jpeg" alt="Ava Stone Full" class="viewer-image"
+         style="max-width: 95%; max-height: 85%; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.6); border-radius: 12px;"
+         (click)="$event.stopPropagation()" />
+  </div>
+</ion-content>

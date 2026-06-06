@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">clanjunction-ui</string>
+    <string name="title_activity_main">clanjunction-ui</string>
+    <string name="package_name">com.clanjunction.ui</string>
+    <string name="custom_url_scheme">com.clanjunction.ui</string>
+</resources>

@@ -1,20 +1,112 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="home-shell">
+  <header class="top-panel">
+    <div class="top-row">
+      <div class="brand-wrap">
+        <img class="brand-logo" src="assets/logo/logo-nobg.png" alt="Clanjunction logo" />
+      </div>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" aria-label="Notifications">🔔</button>
+        <button type="button" class="avatar-btn" aria-label="Profile">AS</button>
+      </div>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <label class="search-box" aria-label="Search professionals and companies">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="search" [(ngModel)]="searchTerm" placeholder="Search professionals, companies, skills..." />
+      <button type="button" class="ghost-btn" *ngIf="searchTerm" (click)="clearSearch()">Clear</button>
+    </label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <nav class="tab-row" aria-label="Feed views">
+      <button type="button" class="tab-chip" [class.active]="activeTab === 'cards'" (click)="selectTab('cards')">Business Cards</button>
+      <button type="button" class="tab-chip" [class.active]="activeTab === 'proposals'" (click)="selectTab('proposals')">Business Proposals</button>
+    </nav>
+  </header>
+
+  <main class="feed-area">
+    <section class="promo-strip" aria-label="Featured promotions">
+      <div class="promo-track" #promoTrack (scroll)="onPromoScroll()">
+        <article class="promo-card promo-card-one ad-card">
+          <img src="assets/promo/KeetSaree.png" alt="Keet Saree Advertisement" class="promo-ad-img" />
+        </article>
+        <article class="promo-card promo-card-two ad-card">
+         <img src="assets/promo/jyoti.png" alt="Jyoti nighty Advertisement" class="promo-ad-img" />
+       </article>
+        <article class="promo-card promo-card-three ad-card">
+         <img src="assets/promo/sangee.png" alt="Sangeetha Bangles Advertisement" class="promo-ad-img" />
+        </article>
+      </div>
+      <div class="promo-dots" aria-label="Promo indicators">
+        <span class="dot" [class.active]="activePromoIndex === 0"></span>
+        <span class="dot" [class.active]="activePromoIndex === 1"></span>
+        <span class="dot" [class.active]="activePromoIndex === 2"></span>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">Live feed</p>
+        <h3>Discover the latest cards</h3>
+      </div>
+      <span class="pill">{{ visibleCards.length }} items</span>
+    </section>
+
+    <article class="card-stack" *ngIf="visibleCards.length; else emptyState">
+      <a class="business-card branded-card" *ngFor="let card of visibleCards" [routerLink]="['/profile', card.id]" [ngClass]="getCardTemplate(card)">
+        <div class="detail-shell">
+          <div class="brand-card-top">
+            <div class="post-user compact-user">
+              <span class="profile-badge" style="border-radius: 50%; overflow: hidden; display: flex; width: 44px; height: 44px; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <img src="assets/profilepic/Keetu.jpeg" alt="User profile" style="width: 100%; height: 100%; object-fit: cover;" />
+              </span>
+              <div>
+                <strong>{{ card.name }}</strong>
+                <p>{{ card.designation }}</p>
+              </div>
+            </div>
+            <!-- <span class="tiny-tag">{{ card.industry }}</span> -->
+          </div>
+
+          <div class="brand-card-surface">
+            <div class="brand-copy">
+              <p class="mini-label">{{ card.title }}</p>
+              <h4>{{ card.company }}</h4>
+              <p class="meta">{{ card.specialty }}</p>
+              <p class="location-pill">📍 New York, USA</p>
+            </div>
+            <div class="brand-badge-wrap">
+              <img class="brand-card-logo" src="assets/logo/logo-nobg.png" alt="Brand logo" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="engagement-row">
+            <span>↗️ 245</span>
+            <!-- <span>💬 32</span>
+            <span>↗️ 18 shares</span> -->
+          </div>
+          <div class="actions-row right-actions">
+            <button type="button" class="mini-icon-btn" aria-label="Exchange contact">🔁</button>
+            <a class="mini-icon-btn call-btn" href="tel:+15551234567" aria-label="Call contact">📞</a>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <ng-template #emptyState>
+      <div class="empty-card">No matching cards for “{{ searchTerm }}”.</div>
+    </ng-template>
+
+    <section class="auth-cta-card">
+      <div>
+        <p class="eyebrow">Account flow</p>
+        <h2>Use the dedicated login and register pages</h2>
+        <p class="support-copy">The app now keeps authentication views separate and ready for real API integration later.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="primary-btn" routerLink="/login">Go to Login</a>
+        <a class="ghost-btn" routerLink="/register">Create account</a>
+      </div>
+    </section>
+  </main>
 </ion-content>

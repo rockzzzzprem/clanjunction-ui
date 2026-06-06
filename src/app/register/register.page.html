@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true" class="auth-shell">
+  <main class="auth-card">
+    <p class="eyebrow">Create account</p>
+    <h1>Register</h1>
+    <p class="support-copy">This page is separated from the feed so authentication can be swapped for a real API later.</p>
+
+    <form (ngSubmit)="onSubmit()" class="auth-form">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="username" name="username" placeholder="Choose a username" required />
+
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" name="email" placeholder="name@company.com" required />
+
+      <label>Password</label>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="At least 6 characters" required />
+
+      <button type="submit" class="primary-btn">Create account</button>
+      <p class="status" *ngIf="message">{{ message }}</p>
+    </form>
+
+    <p class="switch-link">Already have an account? <a routerLink="/login">Sign in</a></p>
+    <a class="ghost-link" routerLink="/home">Back to Home</a>
+  </main>
+</ion-content>

@@ -1,0 +1,141 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #ffffff;
+}
+
+.premium-header {
+  height: 30vh;
+  background: linear-gradient(135deg, #ed153e 0%, #8e0a24 100%);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 24px 70px;
+
+  .back-btn {
+    position: absolute;
+    top: 44px;
+    left: 8px;
+    z-index: 10;
+  }
+
+  .header-content {
+    color: #ffffff;
+    z-index: 2;
+    max-width: 80%;
+
+    .welcome-text {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.4;
+      opacity: 0.9;
+      margin: 0;
+      color: #ffffff;
+    }
+  }
+}
+
+.wave-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+}
+
+.login-card-container {
+  margin-top: -40px;
+  z-index: 10;
+  position: relative;
+}
+
+.form-card {
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  padding: 28px 24px;
+}
+
+.input-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-left: 4px;
+  margin-bottom: 6px;
+}
+
+.m3-input-item {
+  --background: #f8f9fa;
+  --border-radius: 30px;
+  --padding-start: 20px;
+  --highlight-color-focused: #ed153e;
+  border-radius: 30px;
+  border: 1px solid #e5e7eb;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+
+  &.item-has-focus {
+    background: #ffffff;
+    border-color: #ed153e;
+    box-shadow: 0 0 0 4px rgba(237, 21, 62, 0.1);
+  }
+
+  ion-icon { 
+    color: #9ca3af; 
+    font-size: 20px; 
+    margin-right: 12px; 
+  }
+  
+  ion-input { 
+    --padding-top: 14px; 
+    --padding-bottom: 14px; 
+    font-weight: 500; 
+    padding-right: 20px;
+  }
+}
+
+.premium-pill-btn {
+  --border-radius: 18px;
+  --background: #ed153e;
+  --box-shadow: 0 8px 20px rgba(237, 21, 62, 0.25);
+  height: 58px;
+  font-weight: 600;
+  margin-top: 32px;
+  text-transform: none;
+  font-size: 16px;
+}
+
+.google-signin-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  .google-signin-img {
+    height: 46px;
+    width: auto;
+    display: block;
+  }
+}
